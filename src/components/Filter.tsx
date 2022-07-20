@@ -24,7 +24,7 @@ export function Filter({title, isActive = false, type, ...rest}: Props) {
     flex={1}
     size="sm"
     {...rest}>
-      <Text>
+      <Text color={isActive ? colorType : "gray.300" } fontSize="xs" textTransform="uppercase">
         {title}
       </Text>
     </Button>
