@@ -5,6 +5,12 @@
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"
-    ]
+    ],
+    "android": {
+      "package": "com.devdanton.rockethelp"
+    }
+  },
+  "android": {
+    "package": "com.devDanton.rockethelp"
   }
 }
