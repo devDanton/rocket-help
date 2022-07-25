@@ -6,16 +6,11 @@
     "assetBundlePatterns": [
       "**/*"
     ],
-    "plugins": [
-      "@react-native-firebase/app"
-    ],
     "android": {
-      "package": "com.devdanton.rockethelp",
-      "googleServicesFile": "./google-services.json"
-    },
-    "ios": {
-      "bundleIdentifier": "com.devdanton.rockethelp",
-      "googleServicesFile": "./GoogleService-Info.plist"
+      "package": "com.devdanton.rockethelp"
     }
+  },
+  "android": {
+    "package": "com.devDanton.rockethelp"
   }
 }
