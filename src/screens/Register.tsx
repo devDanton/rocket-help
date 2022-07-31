@@ -10,8 +10,9 @@ import { Alert } from 'react-native';
 
 export function Register() {
   const [isLoading, setIsLoading] = useState(false);
-  const [patrimony, setPatrimony] = useState();
-  const [description, setDescription] = useState();
+  const [patrimony, setPatrimony] = useState('');
+  const [description, setDescription] = useState('');
+
   const navigation = useNavigation();
 
   function handleNewOrderRegister() {
@@ -33,7 +34,7 @@ export function Register() {
         Alert.alert('Solicitação', 'Solicitação registrada com sucesso.');
         navigation.goBack();
       })
-      .catch(error => {
+      .catch((error) => {
         console.log(error);
         setIsLoading(false);
         return Alert.alert('Solicitação', 'Não foi possível registrar o pedido.');
@@ -45,7 +46,7 @@ export function Register() {
       <Header title="Nova solicitação" />
 
       <Input
-        plac eholder="Número do patrimônio"
+        placeholder="Número do patrimônio"
         mt={4}
         onChangeText={setPatrimony}
       />
