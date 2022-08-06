@@ -1,11 +1,10 @@
-import firestore from '@react-native-firebase/firestore';
+import fireestore from '@react-native-firebase/firestore';
 
 import { useEffect, useState } from 'react';
-import { HStack, Text, VStack, useTheme, ScrollView, Box } from 'native-base';
-import { useNavigation, useRoute } from '@react-navigation/native';
+import { HStack, Text, VStack, useTheme, ScrollView } from 'native-base';
+import { useRoute } from '@react-navigation/native';
 import { CircleWavyCheck, Hourglass, DesktopTower, Clipboard } from 'phosphor-react-native';
 
-import { Button } from '../components/Button';
 import { Input } from '../components/Input';
 import { CardDetails } from '../components/CardDetails';
 import { Loading } from '../components/Loading';
@@ -13,7 +12,6 @@ import { dateFormat } from '../utils/firestoreDateFormat';
 import { Header } from '../components/Header';
 import { OrderProps } from '../components/Order';
 import { OrderFirestoreDTO } from '../DTOs/OrdetFirestoreDTO';
-import { Alert } from 'react-native';
 
 
 type RouteParams = {
@@ -31,37 +29,12 @@ export function Details() {
   const [solution, setSolution] = useState('');
   const [order, setOrder] = useState<OrderDetails>({} as OrderDetails);
 
-  const navigation = useNavigation();
   const { colors } = useTheme();
   const route = useRoute();
   const { orderId } = route.params as RouteParams;
 
-  function handleOrderClose() {
-    if (!solution) {
-      return Alert.alert('Solicitação', 'Informe a solução para encerrar a solicitação.');
-    }
-
-    firestore()
-      .collection<OrderFirestoreDTO>('orders')
-      .doc(orderId)
-      .update({
-        status: 'closed',
-        solution,
-        closed_at: firestore.FieldValue.serverTimestamp()
-      })
-      .then(() => {
-        Alert.alert('Solicitação', 'solicitação encerrada.');
-        navigation.goBack();
-      })
-
-      .catch((error) => {
-        console.log(error);
-        Alert.alert('Solicitação', 'Não foi possível encerrar a solicitação');
-      })
-  }
-
   useEffect(() => {
-    firestore()
+    fireestore()
       .collection<OrderFirestoreDTO>('orders')
       .doc(orderId)
       .get()
@@ -89,10 +62,9 @@ export function Details() {
   }
 
   return (
+
     <VStack flex={1} bg="gray.700">
-      <Box px={6} bg="gray.600">
-        <Header title="Solicitação" />
-      </Box>
+      <Header title="solicitação" />
       <HStack bg="gray.500" justifyContent="center" p={4}>
         {
           order.status === 'closed'
@@ -127,31 +99,17 @@ export function Details() {
         <CardDetails
           title="solução"
           icon={CircleWavyCheck}
-          description={order.solution}
           footer={order.closed && `Encerrado em ${order.closed}`}
         >
-          {
-            order.status === 'open' &&
-            <Input
-              placeholder="Descrição da solução"
-              onChangeText={setSolution}
-              textAlignVertical="top"
-              multiline
-              h={24}
-            />
-          }
+          <Input
+            placeholder="Descrição da solução"
+            onChangeText={setSolution}
+            textAlignVertical="top"
+            multiline
+            h={24}
+          />
         </CardDetails>
       </ScrollView>
-
-      {
-        order.status === 'open' &&
-        <Button
-          title="Encerrar solicitação"
-          m={5}
-          onPress={handleOrderClose}
-        />
-      }
     </VStack >
-
   );
 }
