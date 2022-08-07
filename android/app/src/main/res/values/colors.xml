@@ -1,4 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE xml>
 <resources>
+  <color name="primary">#202024</color>
   <color name="colorPrimary">#023c69</color>
   <color name="colorPrimaryDark">#ffffff</color>
 </resources>
