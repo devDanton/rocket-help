@@ -3257,6 +3257,11 @@
   dependencies:
     "fill-range" "^7.0.1"
 
+"brew@^0.0.8":
+  "integrity" "sha512-BSTwOi8fIk8+7SbNmqhleUdjVZTewhYOqRb7zeSOk45sEx1ak6v1btoFl0WiaIbl1dsg4DFHQ4qefXpqXztMXA=="
+  "resolved" "https://registry.npmjs.org/brew/-/brew-0.0.8.tgz"
+  "version" "0.0.8"
+
 "browserslist@^4.20.2", "browserslist@^4.21.2", "browserslist@>= 4.21.0":
   "integrity" "sha512-MonuOgAtUB46uP5CezYbRaYKBNt2LxP0yX+Pmj4LkcDFGkn9Cbpi83d9sCjwQDErXsIJSzY5oKGDbgOlF/LPAA=="
   "resolved" "https://registry.npmjs.org/browserslist/-/browserslist-4.21.2.tgz"
