@@ -8,7 +8,6 @@ import { useNavigation } from '@react-navigation/native';
 
 import Logo from "../assets/logo_secondary.svg";
 
-
 import { dateFormat } from '../utils/firestoreDateFormat';
 
 import { Order, OrderProps } from '../components/Order';
@@ -16,7 +15,6 @@ import { Button } from '../components/Button';
 import { Filter } from '../components/Filter';
 import { Loading } from '../components/Loading';
 import { isLoading } from 'expo-font';
-
 
 export function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -68,7 +66,6 @@ export function Home() {
     return subscriber;
 
   }, [statusSelected]);
-
 
   return (
     <VStack flex={1} pb={6} bg="gray.700">
