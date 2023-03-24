@@ -2,7 +2,7 @@
   "expo": {
     "name": "rockethelp",
     "slug": "rockethelp",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "assetBundlePatterns": [
       "**/*"
     ],
@@ -19,7 +19,7 @@
     },
     "ios": {
       "bundleIdentifier": "com.rockethelp",
-      "googleServicesFile": "./GoogleService-Info.plist" 
+      "googleServicesFile": "./GoogleService-Info.plist"
     }
   }
 }
