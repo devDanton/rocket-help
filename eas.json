@@ -6,7 +6,7 @@
     "development": {
       "distribution": "internal",
       "android": {
-        "buildType": "apk",
+        "buildType": "apk", //build APK with expo: eas build -p android --profile preview 
         "gradleCommand": ":app:assembleRelease"
       },
       "ios": {
